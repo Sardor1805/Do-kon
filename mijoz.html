@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e14">
+<link rel="manifest" href="manifest.json">
+<title>Mijoz & Ustama</title>
+<link rel="stylesheet" href="mijoz.css">
+
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+
+</head>
+<body>
+
+<header class="yuqori">
+  <div class="yuqori-chap">
+    <span class="logo">▣</span>
+    <h1>MIJOZ</h1>
+  </div>
+  <div class="yuqori-ong">
+    <span id="soat" class="soat">--:--</span>
+  </div>
+</header>
+
+<main class="asosiy">
+
+  <!-- TABLAR -->
+  <div class="tablar">
+    <button class="tab-tugma aktiv" data-tab="mijoz">Mijozlar</button>
+    <button class="tab-tugma" data-tab="ustama">Ustama</button>
+  </div>
+
+  <!-- ============ TAB 1: MIJOZLAR ============ -->
+  <section class="tab-panel aktiv" id="panel-mijoz">
+
+    <!-- Yangi mijoz -->
+    <div class="forma">
+      <h3 class="forma-sarlavha">YANGI MIJOZ</h3>
+      <label class="label">Ismi</label>
+      <input type="text" id="m-ismi" class="input" placeholder="Ism familiya">
+      <label class="label">Telefon</label>
+      <input type="tel" id="m-telefon" class="input" placeholder="+998 90 123 45 67">
+      <button id="m-qoshish" class="asosiy-btn">QO'SHISH</button>
+    </div>
+
+    <!-- Mijozlar ro'yxati -->
+    <h2 class="bolim-sarlavha">MIJOZLAR RO'YXATI</h2>
+    <div id="mijozlar-royxat" class="mijozlar-royxat"></div>
+
+    <!-- Mijoz kartasi (modal) -->
+<div id="karta-modal" class="modal gizli">
+  <div class="modal-ich">
+    <div class="modal-yuqori">
+      <span id="karta-ismi">Mijoz</span>
+      <button id="karta-yop" class="icon-btn">✕</button>
+    </div>
+    <div class="karta-ich">
+      <div class="karta-qarz">
+        <span class="karta-qarz-nom">UMUMIY QARZ</span>
+        <span class="karta-qarz-sum" id="karta-qarz">0</span>
+      </div>
+      <div class="karta-tel" id="karta-tel"></div>
+
+      <h4 class="karta-sarlavha">TO'LANMAGAN HARIDLAR</h4>
+      <div id="karta-haridlar"></div>
+
+      <h4 class="karta-sarlavha">TO'LOVLAR TARIXI</h4>
+      <div id="karta-tolovlar"></div>
+
+      <button id="excel-btn" class="asosiy-btn excel-btn">📥 Excel (.xls) yuklab olish</button>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <!-- ============ TAB 2: USTAMA ============ -->
+  <section class="tab-panel" id="panel-ustama">
+
+    <!-- Ustama qo'shish -->
+    <div class="forma">
+      <h3 class="forma-sarlavha">USTAMA QO'SHISH</h3>
+      <label class="label">Tavar turi</label>
+      <select id="u-tur" class="input">
+        <option value="">— Tur tanlang —</option>
+      </select>
+
+      <label class="label">Ustama turi</label>
+      <div class="ustama-turi">
+        <label class="u-opt aktiv"><input type="radio" name="u-turi" value="foiz" checked><span>% Foiz</span></label>
+        <label class="u-opt"><input type="radio" name="u-turi" value="qiymat"><span>So'm qiymat</span></label>
+      </div>
+
+      <label class="label">Qiymat</label>
+      <input type="number" id="u-qiymat" class="input" placeholder="0" inputmode="numeric">
+
+      <button id="u-saqlash" class="asosiy-btn">SAQLASH</button>
+    </div>
+
+    <!-- Mavjud ustamalar -->
+    <h2 class="bolim-sarlavha">MAVJUD USTAMALAR</h2>
+    <div id="ustamalar-royxat" class="amallar"></div>
+
+    <!-- Turlar boshqaruvi -->
+    <h2 class="bolim-sarlavha">TURLARNI BOSHQARISH</h2>
+    <div class="forma">
+      <label class="label">Yangi tur nomi</label>
+      <div class="kod-qator">
+        <input type="text" id="tur-nomi" class="input" placeholder="Masalan: Planshet">
+        <button id="tur-qoshish" class="icon-btn">+</button>
+      </div>
+      <div id="turlar-royxat" class="turlar-royxat"></div>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="config.js"></script>
+<script src="mijoz.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e14">
+<link rel="manifest" href="manifest.json">
+<title>Qidiruv</title>
+<link rel="stylesheet" href="qidiruv.css">
+
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+
+</head>
+<body>
+
+<header class="yuqori">
+  <div class="yuqori-chap">
+    <span class="logo">▣</span>
+    <h1>QIDIRUV</h1>
+  </div>
+  <div class="yuqori-ong">
+    <span id="soat" class="soat">--:--</span>
+  </div>
+</header>
+
+<main class="asosiy">
+
+  <!-- FILTRLAR -->
+  <section class="bolim">
+    <h2 class="bolim-sarlavha">FILTRLAR</h2>
+    <div class="filtr-grid">
+      <div>
+        <label class="label">Tavar turi</label>
+        <select id="f-tur" class="input">
+          <option value="">— Barchasi —</option>
+        </select>
+      </div>
+      <div>
+        <label class="label">Telefon modeli</label>
+        <select id="f-model" class="input">
+          <option value="">— Barchasi —</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- QIDIRUV INPUT -->
+  <section class="bolim">
+    <div class="qidiruv-qator">
+      <input type="text" id="q-input" class="input qidiruv-input"
+             placeholder="Sam a52 wf, C5212..." autocomplete="off">
+      <button id="q-tozalash" class="icon-btn" title="Tozalash">✕</button>
+    </div>
+    <p class="yordam">So'zlar bo'shliq bilan ajratiladi, ketma-ket toraytiriladi.</p>
+  </section>
+
+  <!-- NATIJA SARLAVHASI -->
+  <div id="natija-sarlavha" class="natija-sarlavha gizli">
+    <span id="natija-soni">0 ta natija</span>
+    <span id="natija-jami" class="xira">— jami 0 ta tavar</span>
+  </div>
+
+  <!-- NATIJALAR -->
+  <section class="bolim">
+    <div class="jadval-wrap">
+      <table class="jadval">
+        <thead>
+          <tr>
+            <th>Kodi</th>
+            <th>Model / Marka</th>
+            <th class="markaz">Soni</th>
+            <th class="ong">Tan narx</th>
+            <th class="ong">Sotuv</th>
+          </tr>
+        </thead>
+        <tbody id="natija-tbody">
+          <tr><td colspan="5" class="bosh">Qidiruvni boshlang...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="qidiruv.js"></script>
+</body>
+</html>

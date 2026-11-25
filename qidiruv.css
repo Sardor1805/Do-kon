@@ -1,0 +1,109 @@
+:root {
+  --fon: #0a0e14; --karta: #141a24; --karta2: #1a2230;
+  --chegara: #1f2937; --matn: #e5e7eb; --xira: #6b7280;
+  --aksent: #00e5ff; --yashil: #00e676; --qizil: #ff5252;
+  --sariq: #ffd740; --binafsha: #b388ff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--fon); color: var(--matn);
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh; padding-bottom: 80px;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0,229,255,.08), transparent 40%),
+    radial-gradient(circle at 80% 100%, rgba(179,136,255,.06), transparent 40%);
+  pointer-events: none; z-index: -1;
+}
+
+.yuqori {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; background: linear-gradient(180deg, #0d1219, transparent);
+  position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+}
+.yuqori-chap { display: flex; align-items: center; gap: 10px; }
+.logo { color: var(--aksent); font-size: 22px; text-shadow: 0 0 12px var(--aksent); }
+.yuqori h1 { font-size: 16px; font-weight: 700; letter-spacing: 3px; }
+.soat { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--aksent); }
+
+.asosiy { padding: 8px 16px 20px; max-width: 720px; margin: 0 auto; }
+.bolim { margin-bottom: 16px; }
+.bolim-sarlavha {
+  font-size: 11px; letter-spacing: 2px; color: var(--xira);
+  font-weight: 600; margin: 8px 4px 12px;
+}
+
+/* FILTR */
+.filtr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.label {
+  display: block; font-size: 11px; letter-spacing: 1.5px;
+  color: var(--xira); font-weight: 600; margin: 0 0 6px;
+}
+.input {
+  width: 100%; padding: 12px 14px; background: var(--karta);
+  border: 1px solid var(--chegara); border-radius: 10px;
+  color: var(--matn); font-size: 14px; font-family: inherit; transition: .2s;
+}
+.input:focus { outline: none; border-color: var(--aksent); box-shadow: 0 0 0 3px rgba(0,229,255,.1); }
+
+/* QIDIRUV */
+.qidiruv-qator { display: flex; gap: 8px; }
+.qidiruv-input {
+  flex: 1; font-size: 16px; font-family: "JetBrains Mono", monospace;
+  letter-spacing: .5px;
+}
+.icon-btn {
+  background: var(--karta); border: 1px solid var(--chegara);
+  color: var(--xira); width: 44px; height: 44px; border-radius: 10px;
+  font-size: 16px; cursor: pointer; transition: .2s; flex-shrink: 0;
+}
+.icon-btn:hover { border-color: var(--qizil); color: var(--qizil); }
+.yordam { font-size: 11px; color: var(--xira); margin-top: 8px; }
+
+/* NATIJA SARLAVHASI */
+.natija-sarlavha {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 12px 16px; background: rgba(0,229,255,.06);
+  border: 1px solid rgba(0,229,255,.25); border-radius: 12px;
+  margin-bottom: 12px; font-size: 13px;
+}
+#natija-soni { font-weight: 700; color: var(--aksent); }
+.xira { color: var(--xira); font-size: 12px; }
+
+/* JADVAL */
+.jadval-wrap {
+  background: var(--karta); border: 1px solid var(--chegara);
+  border-radius: 16px; overflow: hidden;
+}
+.jadval { width: 100%; border-collapse: collapse; font-size: 13px; }
+.jadval thead { background: var(--karta2); }
+.jadval th {
+  padding: 10px 8px; text-align: left; font-size: 10px;
+  letter-spacing: 1px; color: var(--xira); font-weight: 600;
+  border-bottom: 1px solid var(--chegara);
+}
+.jadval td {
+  padding: 10px 8px; border-bottom: 1px solid rgba(31,41,55,.5);
+  color: var(--matn);
+}
+.jadval tbody tr:last-child td { border-bottom: none; }
+.jadval tbody tr:hover { background: rgba(0,229,255,.03); }
+.jadval .markaz { text-align: center; }
+.jadval .ong { text-align: right; font-family: "JetBrains Mono", monospace; }
+.jadval .bosh { text-align: center; color: var(--xira); padding: 24px; }
+.jadval .kod {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--aksent); font-size: 12px;
+}
+.jadval .model-nom { font-weight: 600; }
+.jadval .marka-nom { font-size: 11px; color: var(--xira); }
+
+.gizli { display: none !important; }
+
+@media (max-width: 380px) {
+  .filtr-grid { grid-template-columns: 1fr; }
+  .jadval { font-size: 11px; }
+}

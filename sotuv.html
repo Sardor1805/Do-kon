@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e14">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Sotuv</title>
+<link rel="stylesheet" href="sotuv.css">
+</head>
+<body>
+
+<header class="yuqori">
+  <div class="yuqori-chap">
+    <span class="logo">▣</span>
+    <h1>SOTUV</h1>
+  </div>
+  <div class="yuqori-ong">
+    <span id="soat" class="soat">--:--</span>
+  </div>
+</header>
+
+<main class="asosiy">
+
+  <!-- TABLAR -->
+  <div class="tablar">
+    <button class="tab-tugma aktiv" data-tab="tavar">Tavar</button>
+    <button class="tab-tugma" data-tab="xizmat">Xizmat</button>
+    <button class="tab-tugma" data-tab="xarajat">Xarajat</button>
+  </div>
+
+  <!-- ============ TAB: TAVAR SOTUVI ============ -->
+  <section class="tab-panel aktiv" id="panel-tavar">
+    <div class="forma">
+      <label class="label">Tavar kodi</label>
+      <div class="kod-qator">
+        <input type="text" id="tavar-kod" class="input kod-input"
+               placeholder="C5212 yoki skanerlash..." autocomplete="off">
+        <button id="skaner-btn" class="icon-btn skaner" title="Skanerlash">📷</button>
+      </div>
+      <div id="tavar-info" class="tavar-info gizli"></div>
+
+      <label class="label">Sotuv narxi</label>
+      <input type="number" id="sotuv-narx" class="input" placeholder="0" inputmode="numeric">
+
+      <label class="label">To'lov turi</label>
+      <div class="tolov-grid">
+        <label class="tolov-opt naqd">
+          <input type="radio" name="tolov" value="naqd" checked>
+          <span>💵 Naqd</span>
+        </label>
+        <label class="tolov-opt karta">
+          <input type="radio" name="tolov" value="karta">
+          <span>💳 Karta</span>
+        </label>
+        <label class="tolov-opt plastik">
+          <input type="radio" name="tolov" value="plastik">
+          <span>🏦 Plastik</span>
+        </label>
+        <label class="tolov-opt nasiya">
+          <input type="radio" name="tolov" value="nasiya">
+          <span>📝 Nasiya</span>
+        </label>
+      </div>
+
+      <div id="mijoz-blok" class="gizli">
+        <label class="label">Mijoz <span class="majburiy">*</span></label>
+        <select id="mijoz-select" class="input">
+          <option value="">— Mijoz tanlang —</option>
+        </select>
+      </div>
+
+      <button id="tavar-saqlash" class="asosiy-btn">SAQLASH</button>
+    </div>
+
+    <h2 class="bolim-sarlavha">OXIRGI 10 AMAL</h2>
+    <div id="amallar-tavar" class="amallar"></div>
+  </section>
+
+  <!-- ============ TAB: XIZMAT ============ -->
+  <section class="tab-panel" id="panel-xizmat">
+    <div class="forma">
+      <label class="label">Izoh</label>
+      <input type="text" id="xizmat-izoh" class="input" placeholder="Ekran almashtirish...">
+      <label class="label">Narx</label>
+      <input type="number" id="xizmat-narx" class="input" placeholder="0" inputmode="numeric">
+
+      <label class="label">To'lov turi</label>
+      <div class="tolov-grid">
+        <label class="tolov-opt naqd">
+          <input type="radio" name="xizmat-tolov" value="naqd" checked>
+          <span>💵 Naqd</span>
+        </label>
+        <label class="tolov-opt karta">
+          <input type="radio" name="xizmat-tolov" value="karta">
+          <span>💳 Karta</span>
+        </label>
+        <label class="tolov-opt plastik">
+          <input type="radio" name="xizmat-tolov" value="plastik">
+          <span>🏦 Plastik</span>
+        </label>
+        <label class="tolov-opt nasiya">
+          <input type="radio" name="xizmat-tolov" value="nasiya">
+          <span>📝 Nasiya</span>
+        </label>
+      </div>
+
+      <div id="xizmat-mijoz-blok" class="gizli">
+        <label class="label">Mijoz <span class="majburiy">*</span></label>
+        <select id="xizmat-mijoz-select" class="input">
+          <option value="">— Mijoz tanlang —</option>
+        </select>
+      </div>
+
+      <button id="xizmat-saqlash" class="asosiy-btn">SAQLASH</button>
+    </div>
+    <h2 class="bolim-sarlavha">OXIRGI 10 AMAL</h2>
+    <div id="amallar-xizmat" class="amallar"></div>
+  </section>
+
+  <!-- ============ TAB: XARAJAT (3 to'lov turi) ============ -->
+  <section class="tab-panel" id="panel-xarajat">
+    <div class="forma">
+      <label class="label">Izoh</label>
+      <input type="text" id="xarajat-izoh" class="input" placeholder="Ijara, oylik...">
+      <label class="label">Narx</label>
+      <input type="number" id="xarajat-narx" class="input" placeholder="0" inputmode="numeric">
+
+      <label class="label">To'lov turi</label>
+      <div class="tolov-grid">
+        <label class="tolov-opt naqd">
+          <input type="radio" name="xarajat-tolov" value="naqd" checked>
+          <span>💵 Naqd</span>
+        </label>
+        <label class="tolov-opt karta">
+          <input type="radio" name="xarajat-tolov" value="karta">
+          <span>💳 Karta</span>
+        </label>
+        <label class="tolov-opt plastik">
+          <input type="radio" name="xarajat-tolov" value="plastik">
+          <span>🏦 Plastik</span>
+        </label>
+      </div>
+
+      <button id="xarajat-saqlash" class="asosiy-btn qizil-btn">SAQLASH</button>
+    </div>
+    <h2 class="bolim-sarlavha">OXIRGI 10 AMAL</h2>
+    <div id="amallar-xarajat" class="amallar"></div>
+  </section>
+
+</main>
+
+<!-- SKANER MODAL -->
+<div id="skaner-modal" class="modal gizli">
+  <div class="modal-ich">
+    <div class="modal-yuqori">
+      <span>Shtrix kod skanerlash</span>
+      <button id="skaner-yop" class="icon-btn">✕</button>
+    </div>
+    <div id="skaner-reader" class="skaner-reader"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script src="config.js"></script>
+<script src="sotuv.js"></script>
+</body>
+</html>

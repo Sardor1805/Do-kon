@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e14">
+<link rel="manifest" href="manifest.json">
+<title>Kassa</title>
+<link rel="stylesheet" href="index.css">
+
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+</head>
+<body>
+
+<header class="yuqori">
+  <div class="yuqori-chap">
+    <span class="logo">▣</span>
+    <h1>KASSA</h1>
+  </div>
+  <div class="yuqori-ong">
+    <span id="soat" class="soat">--:--</span>
+    <button id="yangila" class="icon-btn" title="Yangilash">↻</button>
+  </div>
+</header>
+
+<main class="asosiy">
+
+  <!-- KASSA HOLATI -->
+  <section class="bolim">
+    <h2 class="bolim-sarlavha">KASSA HOLATI</h2>
+    <div class="kassa-grid">
+      <div class="kassa-karta naqd">
+        <span class="kassa-icon">💵</span>
+        <span class="kassa-nom">NAQD</span>
+        <span class="kassa-sum" id="kassa-naqd">0</span>
+      </div>
+      <div class="kassa-karta karta">
+        <span class="kassa-icon">💳</span>
+        <span class="kassa-nom">KARTA</span>
+        <span class="kassa-sum" id="kassa-karta">0</span>
+      </div>
+      <div class="kassa-karta qarz">
+        <span class="kassa-icon">📝</span>
+        <span class="kassa-nom">QARZ</span>
+        <span class="kassa-sum" id="kassa-qarz">0</span>
+      </div>
+      <div class="kassa-karta plastik">
+        <span class="kassa-icon">🏦</span>
+        <span class="kassa-nom">PLASTIK</span>
+        <span class="kassa-sum" id="kassa-plastik">0</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- KUNLIK KO'RSATKICHLAR -->
+  <section class="bolim">
+    <h2 class="bolim-sarlavha">KUNLIK</h2>
+    <div class="kunlik-karta">
+      <div class="kunlik-qator">
+        <span>Tushum</span>
+        <span class="val" id="kun-tushum">0</span>
+      </div>
+      <div class="kunlik-qator">
+        <span>Tavar qiymati</span>
+        <span class="val" id="kun-tavar">0</span>
+      </div>
+      <div class="kunlik-qator">
+        <span>Chiqim</span>
+        <span class="val qizil" id="kun-chiqim">0</span>
+      </div>
+      <div class="kunlik-ajratgich"></div>
+      <div class="kunlik-qator katta">
+        <span>Sof foyda</span>
+        <span class="val yashil" id="kun-foyda">0</span>
+      </div>
+      <div class="kunlik-qator">
+        <span>Sotilgan soni</span>
+        <span class="val" id="kun-soni">0 ta</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOTILGAN TAVARLAR -->
+  <section class="bolim">
+    <h2 class="bolim-sarlavha">SOTILGAN TAVARLAR</h2>
+    <div class="jadval-wrap">
+      <table class="jadval">
+        <thead>
+          <tr>
+            <th>Kodi</th>
+            <th>Model / Marka</th>
+            <th class="markaz">Soni</th>
+            <th class="ong">Tan narx</th>
+            <th class="ong">Sotuv</th>
+            <th>Mijoz</th>
+          </tr>
+        </thead>
+        <tbody id="sotilgan-tbody">
+          <tr><td colspan="6" class="bosh">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+/* ============ ASOS ============ */
+:root {
+  --fon: #0a0e14;
+  --karta: #141a24;
+  --karta2: #1a2230;
+  --chegara: #1f2937;
+  --matn: #e5e7eb;
+  --xira: #6b7280;
+  --aksent: #00e5ff;
+  --yashil: #00e676;
+  --qizil: #ff5252;
+  --sariq: #ffd740;
+  --binafsha: #b388ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--fon);
+  color: var(--matn);
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fon naqshi */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0, 229, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 100%, rgba(179, 136, 255, 0.06), transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============ YUQORI ============ */
+.yuqori {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, #0d1219, transparent);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.yuqori-chap { display: flex; align-items: center; gap: 10px; }
+.logo {
+  color: var(--aksent);
+  font-size: 22px;
+  text-shadow: 0 0 12px var(--aksent);
+}
+.yuqori h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--matn);
+}
+.yuqori-ong { display: flex; align-items: center; gap: 12px; }
+.soat {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  color: var(--aksent);
+  letter-spacing: 1px;
+}
+.icon-btn {
+  background: var(--karta);
+  border: 1px solid var(--chegara);
+  color: var(--aksent);
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: .2s;
+}
+.icon-btn:hover { border-color: var(--aksent); box-shadow: 0 0 12px rgba(0,229,255,.3); }
+.icon-btn:active { transform: scale(.94); }
+
+/* ============ ASOSIY ============ */
+.asosiy { padding: 8px 16px 20px; max-width: 720px; margin: 0 auto; }
+
+.bolim { margin-bottom: 24px; }
+.bolim-sarlavha {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--xira);
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+/* ============ KASSA KARTALARI ============ */
+.kassa-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.kassa-karta {
+  background: var(--karta);
+  border: 1px solid var(--chegara);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: .2s;
+}
+.kassa-karta::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--rang, var(--aksent));
+  box-shadow: 0 0 12px var(--rang, var(--aksent));
+}
+.kassa-karta.naqd    { --rang: var(--yashil); }
+.kassa-karta.karta   { --rang: var(--sariq); }
+.kassa-karta.qarz    { --rang: var(--qizil); }
+.kassa-karta.plastik { --rang: var(--binafsha); }
+
+.kassa-karta:hover { border-color: var(--rang); }
+.kassa-icon { font-size: 18px; }
+.kassa-nom {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--xira);
+  font-weight: 600;
+}
+.kassa-sum {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rang);
+}
+
+/* ============ KUNLIK ============ */
+.kunlik-karta {
+  background: var(--karta);
+  border: 1px solid var(--chegara);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.kunlik-qator {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--xira);
+}
+.kunlik-qator .val {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--matn);
+  font-weight: 600;
+}
+.kunlik-qator.katta { font-size: 16px; color: var(--matn); font-weight: 600; }
+.kunlik-qator.katta .val { font-size: 18px; }
+.val.yashil { color: var(--yashil); text-shadow: 0 0 8px rgba(0,230,118,.4); }
+.val.qizil  { color: var(--qizil); }
+.kunlik-ajratgich {
+  height: 1px;
+  background: var(--chegara);
+  margin: 8px 0;
+}
+
+/* ============ JADVAL ============ */
+.jadval-wrap {
+  background: var(--karta);
+  border: 1px solid var(--chegara);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.jadval {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.jadval thead {
+  background: var(--karta2);
+}
+.jadval th {
+  padding: 10px 8px;
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--xira);
+  font-weight: 600;
+  border-bottom: 1px solid var(--chegara);
+}
+.jadval td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(31,41,55,.5);
+  color: var(--matn);
+}
+.jadval tbody tr:last-child td { border-bottom: none; }
+.jadval tbody tr:hover { background: rgba(0,229,255,.03); }
+.jadval .markaz { text-align: center; }
+.jadval .ong { text-align: right; }
+.jadval .bosh {
+  text-align: center;
+  color: var(--xira);
+  padding: 24px;
+}
+.jadval .kod {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--aksent);
+  font-size: 12px;
+}
+.jadval .mijoz-nasiya {
+  color: var(--qizil);
+  font-size: 11px;
+}
+
+/* ============ PASTKI TAB (config.js dan qo'shiladi) ============ */
+/* bu qism config.js dagi tabCss da */
+
+/* ============ MOBIL ============ */
+@media (max-width: 380px) {
+  .kassa-sum { font-size: 15px; }
+  .jadval { font-size: 11px; }
+  .jadval th, .jadval td { padding: 8px 5px; }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e14">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Ombor</title>
+<link rel="stylesheet" href="ombor.css">
+</head>
+<body>
+
+<header class="yuqori">
+  <div class="yuqori-chap">
+    <span class="logo">▣</span>
+    <h1>OMBOR</h1>
+  </div>
+  <div class="yuqori-ong">
+    <span id="soat" class="soat">--:--</span>
+  </div>
+</header>
+
+<main class="asosiy">
+
+  <!-- TURLAR BO'YICHA JAMLANMA -->
+  <section class="bolim">
+    <h2 class="bolim-sarlavha">TURLAR BO'YICHA</h2>
+    <div class="jadval-wrap">
+      <table class="jadval">
+        <thead>
+          <tr>
+            <th>Tur</th>
+            <th class="markaz">Soni</th>
+            <th class="ong">Tannarx</th>
+          </tr>
+        </thead>
+        <tbody id="turlar-tbody">
+          <tr><td colspan="3" class="bosh">Yuklanmoqda...</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="jami">
+            <td>JAMI</td>
+            <td class="markaz" id="jami-soni">0</td>
+            <td class="ong" id="jami-tannarx">0</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <!-- TABLAR -->
+  <div class="tablar">
+    <button class="tab-tugma aktiv" data-tab="tahrir">Tahrirlash / Qo'shish</button>
+    <button class="tab-tugma" data-tab="kirim">Kirim / Chiqim</button>
+  </div>
+
+  <!-- ============ TAB 1: TAHRIRLASH / QO'SHISH ============ -->
+  <section class="tab-panel aktiv" id="panel-tahrir">
+    <div class="forma">
+      <label class="label">Tavar kodi</label>
+      <input type="text" id="t-kod" class="input kod-input"
+             placeholder="C5212 — kiriting yoki skanerlang" autocomplete="off">
+
+      <div id="t-holat" class="holat gizli"></div>
+
+      <label class="label">Tavar turi</label>
+      <select id="t-tur" class="input">
+        <option value="">— Tur tanlang —</option>
+      </select>
+
+      <label class="label">Telefon modeli</label>
+      <input type="text" id="t-model" class="input" placeholder="A52, Note 12...">
+
+      <label class="label">Telefon markasi</label>
+      <input type="text" id="t-marka" class="input" placeholder="Samsung, Xiaomi...">
+
+      <div class="ikki-ustun">
+        <div>
+          <label class="label">Tan narx</label>
+          <input type="number" id="t-tan-narx" class="input" placeholder="0" inputmode="numeric">
+        </div>
+        <div>
+          <label class="label">Soni</label>
+          <input type="number" id="t-soni" class="input" placeholder="0" inputmode="numeric">
+        </div>
+      </div>
+
+      <button id="t-saqlash" class="asosiy-btn">QO'SHISH</button>
+      <button id="t-tozalash" class="ikkilamchi-btn gizli">Tozalash</button>
+    </div>
+  </section>
+
+  <!-- ============ TAB 2: KIRIM / CHIQIM ============ -->
+  <section class="tab-panel" id="panel-kirim">
+
+    <!-- KIRIM -->
+    <div class="forma kirim-forma">
+      <h3 class="forma-sarlavha yashil-matn">📥 KIRIM</h3>
+      <label class="label">Tavar kodlari</label>
+      <textarea id="kirim-kodlar" class="input textarea" rows="3"
+        placeholder="C5212, c4533, rh6545 ...&#10;(vergul yoki bo'shliq bilan ajratilgan)"></textarea>
+      <p class="yordam">Har bir kod = 1 dona. Takrorlangan kod nechta bo'lsa shuncha qo'shiladi.</p>
+      <button id="kirim-btn" class="asosiy-btn">KIRIM QILISH</button>
+    </div>
+
+    <!-- BAZADA YO'Q KODLAR -->
+    <div id="topilmadi-blok" class="forma topilmadi-forma gizli">
+      <h3 class="forma-sarlavha qizil-matn">⚠️ BAZADA YO'Q KODLAR</h3>
+      <p class="yordam">Quyidagi kodlar bazada mavjud emas, shuning uchun kirim qilinmadi. Avval ularni "Tahrirlash / Qo'shish" tabida qo'shing.</p>
+      <div id="topilmadi-royxat" class="topilmadi-royxat"></div>
+      <button id="topilmadi-yop" class="ikkilamchi-btn">Yopish</button>
+    </div>
+
+    <!-- CHIQIM -->
+    <div class="forma chiqim-forma">
+      <h3 class="forma-sarlavha qizil-matn">📤 CHIQIM</h3>
+      <label class="label">Tavar kodi</label>
+      <input type="text" id="chiqim-kod" class="input kod-input" placeholder="C5212">
+      <div class="ikki-ustun">
+        <div>
+          <label class="label">Soni</label>
+          <input type="number" id="chiqim-soni" class="input" placeholder="0" inputmode="numeric">
+        </div>
+        <div>
+          <label class="label">Izoh</label>
+          <input type="text" id="chiqim-izoh" class="input" placeholder="Sabab...">
+        </div>
+      </div>
+      <button id="chiqim-btn" class="asosiy-btn qizil-btn">CHIQIM QILISH</button>
+    </div>
+
+    <h2 class="bolim-sarlavha">OXIRGI KIRIM / CHIQIM</h2>
+    <div id="kirim-chiqim-log" class="amallar"></div>
+
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="ombor.js"></script>
+</body>
+</html>
