@@ -2,7 +2,7 @@
 // Har safar GitHub ga push qilganda bu raqamni oshiring
 // Masalan: "dokon-v1" -> "dokon-v2" -> "dokon-v3"
 // Yoki avtomatik: har safar o'zgarsa yangi kesh yaratiladi
-const CACHE = "dokon-v1";
+const CACHE = "dokon-admin-v1";
 
 // ================= KESHLANADIGAN FAYLLAR =================
 const FAYLLAR = [
